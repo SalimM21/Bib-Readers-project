@@ -4,6 +4,8 @@ from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 import urllib.parse
 import os
+from sqlalchemy.orm import sessionmaker, declarative_base
+
 
 # Charger les variables d'environnement depuis le fichier .env
 load_dotenv()
@@ -23,6 +25,8 @@ DATABASE_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_POR
 
 # Créer l'engine SQLAlchemy
 engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
 
 # Création de la table si elle n’existe pas
 create_table_sql = """
@@ -42,7 +46,7 @@ CREATE TABLE IF NOT EXISTS livres (
 # 4. Importer le CSV avec Pandas
 # ===============================
 
-df = pd.read_csv('livres_bruts.csv')
+df = pd.read_csv('/dataset/livres_bruts.csv')
 
 # Vérifier les colonnes
 print("Aperçu des données :")
