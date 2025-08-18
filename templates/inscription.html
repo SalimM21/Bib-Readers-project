@@ -64,18 +64,60 @@
 
     <div class="jumbotron">
         <h1 class="display-4">Inscription</h1>
-        <form action="/register" method="post">
-            <input type="text" name="username" placeholder="Nom d'utilisateur" required class="form-control" />
-            <input type="email" name="email" placeholder="Adresse e-mail" required class="form-control" />
-            <input type="password" name="password" placeholder="Mot de passe" required class="form-control" />
-            <input type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required
-                class="form-control" />
+        <form id="registerForm" action="/register" method="post" novalidate>
+            <div class="mb-3">
+                <input type="text" name="username" placeholder="Nom d'utilisateur" required class="form-control" />
+                <small class="text-danger error-message" style="display: none;">Veuillez entrer un nom
+                    d'utilisateur.</small>
+            </div>
+
+            <div class="mb-3">
+                <input type="email" name="email" placeholder="Adresse e-mail" required class="form-control" />
+                <small class="text-danger error-message" style="display: none;">Veuillez entrer une adresse e-mail
+                    valide.</small>
+            </div>
+
+            <div class="mb-3">
+                <input type="password" name="password" placeholder="Mot de passe" required class="form-control" />
+                <small class="text-danger error-message" style="display: none;">Veuillez entrer un mot de passe.</small>
+            </div>
+
+            <div class="mb-3">
+                <input type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required
+                    class="form-control" />
+                <small class="text-danger error-message" style="display: none;">Veuillez confirmer votre mot de
+                    passe.</small>
+            </div>
+
             <button type="submit" class="btn btn-primary">S'inscrire</button>
         </form>
-        <div class="form-toggle">
+
+        <div class="form-toggle mt-3">
             Déjà un compte ? <a href="/login">Connectez-vous</a>.
         </div>
     </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            let isValid = true;
+            const inputs = this.querySelectorAll("input[required]");
+
+            inputs.forEach(input => {
+                const errorMessage = input.nextElementSibling;
+                if (!input.value.trim()) {
+                    errorMessage.style.display = "block";
+                    isValid = false;
+                } else {
+                    errorMessage.style.display = "none";
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault(); // Empêche l'envoi si un champ est vide
+            }
+        });
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
