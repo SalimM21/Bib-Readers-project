@@ -50,9 +50,9 @@ class Emprunt(Base):
     date_retour_prevue = Column(DateTime)
     date_retour_effectif = Column(DateTime, nullable=True)
 
+
     adherent = relationship("Adherent", back_populates="emprunts")
     livre = relationship("Livre", back_populates="emprunts")
-
 
 class Reservation(Base):
     __tablename__ = "reservations"
@@ -62,6 +62,7 @@ class Reservation(Base):
     id_adherent = Column(Integer, ForeignKey("adherents.id"))
     id_livre = Column(Integer, ForeignKey("livres.id"))
     date_reservation = Column(DateTime, default=datetime.utcnow)
+
     statut = Column(String(50))
 
     adherent = relationship("Adherent", back_populates="reservations")
@@ -86,4 +87,5 @@ class Notification(Base):
     id_adherent = Column(Integer, ForeignKey("adherents.id"))
     message = Column(Text)
     date = Column(DateTime, default=datetime.utcnow)
+
     lu = Column(Boolean, default=False)

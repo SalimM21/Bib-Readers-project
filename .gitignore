@@ -1,5 +1,6 @@
 .env
 __pycache__/
+mlruns/
 main1.py
 livre1.html
 livre2.html

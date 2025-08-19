@@ -58,6 +58,8 @@ df.rename(columns={
     'Rating': 'rating',
     'availability_num': 'availability_num'
 }, inplace=True)
+
+
 # Vérifier les colonnes
 print("Aperçu des données :")
 print(df.head())
