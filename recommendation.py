@@ -1,5 +1,3 @@
-
-
 #Charger le modèle pré-calculé
 import pickle
 import pandas as pd
@@ -58,4 +56,3 @@ def recommend_by_description(desc, df=df_livres, tfidf=tfidf, sim_matrix=cosine_
     top_indices = sim_scores.argsort()[-top_n:][::-1]
     
     return df.iloc[top_indices].to_dict(orient="records")
-

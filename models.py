@@ -87,5 +87,3 @@ class Notification(Base):
     message = Column(Text)
     date = Column(DateTime, default=datetime.utcnow)
     lu = Column(Boolean, default=False)
-
-

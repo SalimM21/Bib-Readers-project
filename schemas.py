@@ -146,4 +146,3 @@ class Reservation(ReservationBase):
     #             "availability_num": 0
     #         }
     #     }
-
