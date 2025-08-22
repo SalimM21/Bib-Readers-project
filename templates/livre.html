@@ -19,12 +19,14 @@
             align-items: center;
             justify-content: flex-start;
             background-color: #e9ecef;
-            padding-top: 80px; /* espace sous navbar */
+            padding-top: 80px;
+            /* pour éviter que le contenu soit caché sous la navbar */
         }
 
         .navbar {
             width: 100%;
             position: fixed; /* CHANGEMENT : navbar fixe */
+            /* position: absolute; */
             top: 0;
             left: 0;
             z-index: 1000;
@@ -34,6 +36,7 @@
 
         .container {
             max-width: 900px;
+            /* max-width: 1200px; */
             width: 100%;
             background-color: white;
             padding: 20px;
@@ -42,12 +45,88 @@
             margin: 20px auto;
         }
 
+
         h2 {
             margin-bottom: 20px;
         }
 
         .btn-reserver {
             margin-top: 15px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #555;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+        .btn-add {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .btn-add:hover {
+            background-color: #218838;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .result-1 {
+            background-color: #f8d7da;
+            color: #721c24;
+            font-weight: bold;
+        }
+
+        .result-0 {
+            background-color: #d4edda;
+            color: #155724;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -58,6 +137,14 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="/">📚 Bib Readers</a>
+
+    <!-- Barre de navigation -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid"> -->
+            <!-- Logo et nom -->
+            <!-- <a class="navbar-brand fw-bold" href="/">📚 Bib Readers</a> -->
+
+            <!-- Bouton menu mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -122,6 +209,7 @@
                     {% endif %}
                 </p>
 
+
                 <!-- CHANGEMENT : bouton réserver uniquement si disponible -->
                 {% if livre.availability %}
                 <form action="/reserver/{{ livre.id }}" method="POST">
@@ -133,6 +221,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

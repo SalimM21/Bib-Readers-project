@@ -491,3 +491,4 @@ def get_emprunts(id_adherent: int, db: Session = Depends(get_db)):
 
 
 #----------------------------------------------Route FastAPI pour la page de recommandations---------------------------------------
+
