@@ -143,6 +143,6 @@ Bib-Readers-project/
 
 ## 👤 Auteur
 
-- **Votre Nom**  
-- Email : `votre.email@example.com`  
-- GitHub : [Votre Profil](https://github.com/votre-profil)
+- **Salim MAJIDE**  
+- Email : `salim.majide.officiel@gmail.com`  
+- GitHub : [SalimM21]([https://github.com/votre-profil](https://github.com/SalimM21?tab=overview&from=2025-09-01&to=2025-09-02))
