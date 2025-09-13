@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```
 
 ---
-
+<!--
 ## ⚙️ Configuration de la base de données
 
 Créer un fichier `.env` à la racine avec vos paramètres :
@@ -43,7 +43,7 @@ DB_USER=postgres
 DB_PASSWORD=monmotdepasse
 DB_NAME=bib_readers
 ```
-
+-->
 ---
 
 ## ▶️ Lancer l’API FastAPI
